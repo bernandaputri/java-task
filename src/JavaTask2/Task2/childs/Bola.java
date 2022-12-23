@@ -27,13 +27,15 @@ public class Bola extends Lingkaran implements BangunRuang {
 
     @Override
     public double luasPermukaan() {
-        double luasPermukaanBola = 4 * Math.PI * getR();
+        double r = super.getR();
+        double luasPermukaanBola = 4 * Math.PI * r;
         return luasPermukaanBola;
     }
 
     @Override
     public double volumeBangun() {
-        double volumeBola = 4 / 3 * Math.PI * getR() * getR() * getR();
+        double r = super.getR();
+        double volumeBola = 4 / 3 * Math.PI * r * r * r;
         return volumeBola;
     }
     
