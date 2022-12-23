@@ -8,10 +8,9 @@ public class Lingkaran implements BangunDatar {
     public double getR() {
         return r;
     }
-    public void setR(double r) {
-        this.r = r;
-    }
-
+    // public void setR(double r) {
+    //     this.r = r;
+    // }
     public Lingkaran(double r) {
         this.r = r;
     }

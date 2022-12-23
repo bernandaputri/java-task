@@ -16,9 +16,9 @@ public class Prisma extends Segitiga implements BangunRuang {
         return tinggi;
     }
 
-    public void setTinggi(double tinggi) {
-        this.tinggi = tinggi;
-    }
+    // public void setTinggi(double tinggi) {
+    //     this.tinggi = tinggi;
+    // }
 
     @Override
     public void gambarBangun() {

@@ -8,11 +8,9 @@ public class Persegi implements BangunDatar {
     public double getSisi() {
         return sisi;
     }
-
-    public void setSisi(double sisi) {
-        this.sisi = sisi;
-    }
-
+    // public void setSisi(double sisi) {
+    //     this.sisi = sisi;
+    // }
     public Persegi(double sisi) {
         this.sisi = sisi;
     }
