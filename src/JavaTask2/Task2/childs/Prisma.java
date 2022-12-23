@@ -1,6 +1,6 @@
-package JavaTask2.Task2.forChild;
+package JavaTask2.Task2.childs;
 
-import JavaTask2.Task2.forParent.Segitiga;
+import JavaTask2.Task2.parents.Segitiga;
 import JavaTask2.Task2.sevices.BangunRuang;
 
 public class Prisma extends Segitiga implements BangunRuang {

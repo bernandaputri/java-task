@@ -1,6 +1,6 @@
-package JavaTask2.Task2.forChild;
+package JavaTask2.Task2.childs;
 
-import JavaTask2.Task2.forParent.Persegi;
+import JavaTask2.Task2.parents.Persegi;
 import JavaTask2.Task2.sevices.BangunRuang;
 
 public class Kubus extends Persegi implements BangunRuang {

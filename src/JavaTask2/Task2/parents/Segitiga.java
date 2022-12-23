@@ -1,4 +1,4 @@
-package JavaTask2.Task2.forParent;
+package JavaTask2.Task2.parents;
 
 import JavaTask2.Task2.sevices.BangunDatar;
 

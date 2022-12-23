@@ -1,6 +1,6 @@
-package JavaTask2.Task2.forChild;
+package JavaTask2.Task2.childs;
 
-import JavaTask2.Task2.forParent.Lingkaran;
+import JavaTask2.Task2.parents.Lingkaran;
 import JavaTask2.Task2.sevices.BangunRuang;
 
 public class Bola extends Lingkaran implements BangunRuang {

@@ -2,12 +2,12 @@ package JavaTask2.Task2;
 
 import java.util.Scanner;
 
-import JavaTask2.Task2.forChild.Bola;
-import JavaTask2.Task2.forChild.Kubus;
-import JavaTask2.Task2.forChild.Prisma;
-import JavaTask2.Task2.forParent.Lingkaran;
-import JavaTask2.Task2.forParent.Persegi;
-import JavaTask2.Task2.forParent.Segitiga;
+import JavaTask2.Task2.childs.Bola;
+import JavaTask2.Task2.childs.Kubus;
+import JavaTask2.Task2.childs.Prisma;
+import JavaTask2.Task2.parents.Lingkaran;
+import JavaTask2.Task2.parents.Persegi;
+import JavaTask2.Task2.parents.Segitiga;
 
 public class MainApp {
     static Scanner input = new Scanner(System.in);
