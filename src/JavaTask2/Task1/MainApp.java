@@ -62,9 +62,9 @@ public class MainApp {
 
                 case "4":
                     System.out.println("Elementary School: " + education.getElementary());
-                    System.out.println("Junior High School: " + education.getElementary());
-                    System.out.println("Senior High School: " + education.getElementary());
-                    System.out.println("Undergraduate Degree: " + education.getElementary());
+                    System.out.println("Junior High School: " + education.getJuniorHigh());
+                    System.out.println("Senior High School: " + education.getSeniorHigh());
+                    System.out.println("Undergraduate Degree: " + education.getUnderGrad());
                     System.out.println();
                     break;
 
