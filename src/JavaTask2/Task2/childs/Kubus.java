@@ -32,7 +32,7 @@ public class Kubus extends Persegi implements BangunRuang {
     @Override
     public double luasPermukaan() {
         double sisi = super.getSisi();
-        double luasPermukaanKubus = 6 * sisi;
+        double luasPermukaanKubus = 6 * sisi * sisi;
         return luasPermukaanKubus;
     }
 
