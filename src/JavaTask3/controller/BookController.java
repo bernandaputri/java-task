@@ -17,6 +17,7 @@ public class BookController {
         System.out.println();
         if (book.getTitle() == null || book.getAuthor() == null) {
             System.out.println("You haven't save any book, please add some!");
+            System.out.println();
         } else {
             System.out.println(bookDao.findAll());
         }
@@ -25,6 +26,7 @@ public class BookController {
     public void showById() {
         if (book.getTitle() == null || book.getAuthor() == null) {
             System.out.println("You haven't save any book, please add some!");
+            System.out.println();
         } else {
             System.out.println();
             System.out.print("Book ID: ");
