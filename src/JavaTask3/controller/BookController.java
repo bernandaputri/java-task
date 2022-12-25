@@ -20,6 +20,7 @@ public class BookController {
             System.out.println();
         } else {
             System.out.println(bookDao.findAll());
+            // System.out.println(bookDao.findAll().size());
         }
     }
 
@@ -31,7 +32,12 @@ public class BookController {
             System.out.println();
             System.out.print("Book ID: ");
             id = Integer.valueOf(input.nextLine());
-            System.out.println(bookDao.findById(id));
+            
+            if (id > bookDao.findAll().size()) {
+                System.out.println("Book with ID " + id + " doesn't exist.");
+            } else {
+                System.out.println(bookDao.findById(id));
+            }
         }
     }
 
@@ -57,25 +63,34 @@ public class BookController {
         System.out.println();
         System.out.print("Book ID: ");
         id = Integer.valueOf(input.nextLine());
-        System.out.println(bookDao.findById(id));
 
-        System.out.print("Update book title: ");
-        book.setTitle(input.nextLine());
-        System.out.print("Update book author: ");
-        book.setAuthor(input.nextLine());
-        bookDao.update(book, id);
+        if (id > bookDao.findAll().size()) {
+            System.out.println("Book with ID " + id + " doesn't exist.");
+        } else {
+            System.out.println(bookDao.findById(id));
+            System.out.print("Update book title: ");
+            book.setTitle(input.nextLine());
+            System.out.print("Update book author: ");
+            book.setAuthor(input.nextLine());
+            bookDao.update(book, id);
 
-        System.out.println("Book " + id + " successfully updated!");
-        System.out.println();
+            System.out.println("Book " + id + " successfully updated!");
+            System.out.println();
+        }
     }
 
     public void deleteBook() {
         System.out.println();
         System.out.print("Book ID: ");
         id = Integer.valueOf(input.nextLine());
-        bookDao.delete(id);
 
-        System.out.println("Book " + id + " successfully deleted!");
-        System.out.println();
+        if (id > bookDao.findAll().size()) {
+            System.out.println("Book with ID " + id + " doesn't exist.");
+        } else {
+            bookDao.delete(id);
+
+            System.out.println("Book " + id + " successfully deleted!");
+            System.out.println();
+        }
     }
 }
