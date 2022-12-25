@@ -2,7 +2,8 @@ package JavaTask3.model;
 
 public class Book {
     private String title;
-    
+    private String author;
+
     public String getTitle() {
         return title;
     }
@@ -18,7 +19,6 @@ public class Book {
     public void setAuthor(String author) {
         this.author = author;
     }
-    private String author;
 
     @Override
     public String toString() {
