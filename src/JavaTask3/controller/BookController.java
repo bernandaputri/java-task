@@ -66,6 +66,7 @@ public class BookController {
         bookDao.update(book, id);
 
         System.out.println("Book " + id + " successfully updated!");
+        System.out.println();
     }
 
     public void deleteBook() {
@@ -75,5 +76,6 @@ public class BookController {
         bookDao.delete(id);
 
         System.out.println("Book " + id + " successfully deleted!");
+        System.out.println();
     }
 }
