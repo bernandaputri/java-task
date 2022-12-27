@@ -8,7 +8,7 @@ import JavaTask3.service.DaoService;
 
 public class BookController {
     static Scanner input = new Scanner(System.in);
-    private static DaoService<Book, Integer> bookDao = new BookRepository();
+    private DaoService<Book, Integer> bookDao = new BookRepository(); 
     private Book book = new Book();
     private int id;
     private String bookOption;
