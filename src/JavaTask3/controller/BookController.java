@@ -1,5 +1,6 @@
 package JavaTask3.controller;
 
+import java.util.List;
 import java.util.Scanner;
 
 import JavaTask3.model.Book;
@@ -10,17 +11,26 @@ public class BookController {
     static Scanner input = new Scanner(System.in);
     private DaoService<Book, Integer> bookDao = new BookRepository(); 
     private Book book = new Book();
+    private List<Book> books;
+    private Book bookById;
     private int id;
     private String bookOption;
 
     public void showData() {
         System.out.println();
-        if (bookDao.findAll().isEmpty()) {
+        books = bookDao.findAll();
+        if (books.isEmpty()) {
             System.out.println("You haven't save any book, please add some!");
             System.out.println();
         } else {
-            System.out.println(bookDao.findAll());
-            // System.out.println(bookDao.findAll().size());
+            int i = 1;
+            for (Book book : books) {
+                System.out.println("Book ID: " + i);
+                System.out.println("Title: " + book.getTitle());
+                System.out.println("Author: " + book.getAuthor());
+                System.out.println();
+                i++;
+            }
         }
     }
 
@@ -33,10 +43,13 @@ public class BookController {
             System.out.print("Book ID: ");
             id = Integer.valueOf(input.nextLine());
 
-            if (id > bookDao.findAll().size()) {
+            if (id > books.size()) {
                 System.out.println("Book with ID " + id + " doesn't exist.");
             } else {
-                System.out.println(bookDao.findById(id));
+                bookById = bookDao.findById(id);
+                System.out.println("Title: " + book.getTitle());
+                System.out.println("Author: " + book.getAuthor());
+                System.out.println();
             }
         }
     }
@@ -60,7 +73,8 @@ public class BookController {
     }
 
     public void updateBook() {
-        if (bookDao.findAll().isEmpty()) {
+        books = bookDao.findAll();
+        if (books.isEmpty()) {
             System.out.println("You haven't save any book, please add some!");
             System.out.println();
         } else {
@@ -68,10 +82,13 @@ public class BookController {
             System.out.print("Book ID: ");
             id = Integer.valueOf(input.nextLine());
 
-            if (id > bookDao.findAll().size()) {
+            if (id > books.size()) {
                 System.out.println("Book with ID " + id + " doesn't exist.");
             } else {
-                System.out.println(bookDao.findById(id));
+                bookById = bookDao.findById(id);
+                System.out.println("Title: " + book.getTitle());
+                System.out.println("Author: " + book.getAuthor());
+                System.out.println();
                 System.out.print("Update book title: ");
                 book.setTitle(input.nextLine());
                 System.out.print("Update book author: ");
