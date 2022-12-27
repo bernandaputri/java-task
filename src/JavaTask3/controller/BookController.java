@@ -12,7 +12,6 @@ public class BookController {
     private DaoService<Book, Integer> bookDao = new BookRepository(); 
     private Book book = new Book();
     private List<Book> books;
-    private Book bookById;
     private int id;
     private String bookOption;
 
@@ -46,7 +45,7 @@ public class BookController {
             if (id > books.size()) {
                 System.out.println("Book with ID " + id + " doesn't exist.");
             } else {
-                bookById = bookDao.findById(id);
+                bookDao.findById(id);
                 System.out.println("Title: " + book.getTitle());
                 System.out.println("Author: " + book.getAuthor());
                 System.out.println();
@@ -85,7 +84,7 @@ public class BookController {
             if (id > books.size()) {
                 System.out.println("Book with ID " + id + " doesn't exist.");
             } else {
-                bookById = bookDao.findById(id);
+                bookDao.findById(id);
                 System.out.println("Title: " + book.getTitle());
                 System.out.println("Author: " + book.getAuthor());
                 System.out.println();
