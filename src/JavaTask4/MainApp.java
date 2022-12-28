@@ -2,12 +2,20 @@ package JavaTask4;
 
 import java.util.Scanner;
 
+import JavaTask4.controller.OrderController;
+import JavaTask4.models.Menu;
+import JavaTask4.repositories.MenuRepository;
+import JavaTask4.services.MenuService;
+
 public class MainApp {
     static Scanner input = new Scanner(System.in);
-    static String option;
-    
+    static OrderController orderController = new OrderController();
+    static MenuService<Menu, Integer> theMenu = new MenuRepository();
+    static String option, optionMenu, optionOrder, optionOut;
+
     private static void appMenu() {
-        System.out.println("----------DAPUR PUTRI----------");
+        System.out.println();
+        System.out.println("========== RESTORAN AYAM GEPREK ==========");
         System.out.println("1. Lihat Daftar Menu");
         System.out.println("2. Input Pesanan");
         System.out.println("3. Pembayaran");
@@ -15,37 +23,101 @@ public class MainApp {
         option = input.nextLine();
     }
 
-    private static void menuMakanan() {
-        System.out.println("----------MENU MAKANAN----------");
-        System.out.println("1. Ayam Gepuk\t\t18000");
-        System.out.println("2. Sate Kulit\t\t4500");
-        System.out.println("3. Sate Usus\t\t4500");
-        System.out.println("4. Sate Telur Puyuh\t4500");
-        System.out.println("5. Tahu\t\t\t2000");
-        System.out.println("6. Tempe\t\t2000");
-        System.out.println("7. Nasi Putih\t\t5000");
-    }
-
-    private static void menuMinuman() {
-        System.out.println("----------MENU MINUMAN----------");
-        System.out.println("1. Es Teh Manis\t\t4000");
-        System.out.println("2. Teh Manis Panas\t3500");
-        System.out.println("3. Es Jeruk Manis\t8000");
-        System.out.println("4. Jeruk Manis Panas\t7500");
-        System.out.println("5. Air Mineral\t\t4500");
-    }
-
-    private static void menuPaket() {
-        System.out.println("------------------------------------------PAKET HEMAT------------------------------------------");
-        System.out.println("1. Nasi + Ayam Gepuk + Es Teh Manis\t\t\t\t\t\t\t25000");
-        System.out.println("2. Nasi + Ayam Gepuk + Tahu + Tempe + Es Teh Manis\t\t\t\t\t28000");
-        System.out.println("3. Nasi + Ayam Gepuk + Tahu + Tempe + Sate (Kulit/Usus/Telur Puyuh) Es Teh Manis\t33000");
+    private static void chooseMenu() {
+        System.out.println();
+        System.out.println("========== PESAN ==========");
+        System.out.println("1. Makanan");
+        System.out.println("2. Minuman");
+        System.out.println("3. Paket");
+        System.out.print("Pilihan: ");
+        optionMenu = input.nextLine();
     }
 
     public static void main(String[] args) {
-        appMenu();
-        menuMakanan();
-        menuMinuman();
-        menuPaket();
+        do {
+            appMenu();
+
+            switch (option) {
+                case "1":
+                    System.out.println();
+                    theMenu.showFoodMenu();
+                    theMenu.showBeverageMenu();
+                    theMenu.showBundleMenu();
+                    break;
+
+                case "2":
+                    do {
+                        do {
+                            chooseMenu();
+                            System.out.println();
+
+                            switch (optionMenu) {
+                                case "1":
+                                    theMenu.showFoodMenu();
+                                    System.out.print("Ingin menambah/mengubah pesanan? (tambah/ubah/kembali) ");
+                                    optionOrder = input.nextLine();
+                                    if (optionOrder.equalsIgnoreCase("tambah")) {
+                                        System.out.println("untuk tambah");
+                                        
+                                    } else if (optionOrder.equalsIgnoreCase("ubah")) {
+                                        System.out.println("untuk ubah");
+                                    } else if (optionOrder.equalsIgnoreCase("kembali")) {
+                                        break;
+                                    } else {
+                                        System.out.println("Pilihan tidak tersedia, silahkan ulangi.");
+                                        System.out.print("Ingin menambah/mengubah pesanan? (tambah/ubah/kembali) ");
+                                        optionOrder = input.nextLine();
+                                    }
+                                    break;
+
+                                case "2":
+                                    theMenu.showBeverageMenu();
+                                    System.out.print("Ingin menambah/mengubah pesanan? (tambah/ubah/kembali) ");
+                                    optionOrder = input.nextLine();
+                                    if (optionOrder.equalsIgnoreCase("tambah")) {
+                                        System.out.println("untuk tambah");
+                                    } else if (optionOrder.equalsIgnoreCase("ubah")) {
+                                        System.out.println("untuk ubah");
+                                    } else if (optionOrder.equalsIgnoreCase("kembali")) {
+                                        break;
+                                    } else {
+                                        System.out.println("Pilihan tidak tersedia, silahkan ulangi.");
+                                        System.out.print("Ingin menambah/mengubah pesanan? (tambah/ubah/kembali) ");
+                                        optionOrder = input.nextLine();
+                                    }
+                                    break;
+
+                                case "3":
+                                    theMenu.showBundleMenu();
+                                    System.out.print("Ingin menambah/mengubah pesanan? (tambah/ubah/kembali) ");
+                                    optionOrder = input.nextLine();
+                                    if (optionOrder.equalsIgnoreCase("tambah")) {
+                                        System.out.println("untuk tambah");
+                                    } else if (optionOrder.equalsIgnoreCase("ubah")) {
+                                        System.out.println("untuk ubah");
+                                    } else if (optionOrder.equalsIgnoreCase("kembali")) {
+                                        break;
+                                    } else {
+                                        System.out.println("Pilihan tidak tersedia, silahkan ulangi.");
+                                        System.out.print("Ingin menambah/mengubah pesanan? (tambah/ubah/kembali) ");
+                                        optionOrder = input.nextLine();
+                                    }
+                                    break;
+
+                                default:
+                                    System.out.println("Pilihan tidak tersedia.");
+                                    break;
+                            }
+                        } while (optionMenu.equalsIgnoreCase("y"));
+                    } while (optionMenu.equalsIgnoreCase("y"));
+                    break;
+
+                default:
+                    System.out.println("Pilihan tidak tersedia.");
+                    break;
+            }
+            System.out.print("Ingin melakukan pemesanan/pembayaran? (y/n) ");
+            optionOut = input.nextLine();
+        } while (optionOut.equalsIgnoreCase("y"));
     }
 }

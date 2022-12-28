@@ -3,6 +3,15 @@ package JavaTask4.models;
 public class Order {
     private String chosenMenu;
     private Integer quantity;
+    private Integer price;
+
+    public Integer getPrice() {
+        return price;
+    }
+
+    public void setPrice(Integer price) {
+        this.price = price;
+    }
 
     public String getChosenMenu() {
         return chosenMenu;
