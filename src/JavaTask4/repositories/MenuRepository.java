@@ -7,6 +7,7 @@ import JavaTask4.models.Menu;
 import JavaTask4.services.MenuService;
 
 public class MenuRepository implements MenuService<Menu, Integer> {
+    
     List<Menu> foodMenu = new ArrayList<>() {
         {
             add(new Menu("Ayam Geprek", 14000.0));

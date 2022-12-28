@@ -16,9 +16,9 @@ public class OrderController {
     private MenuService<Menu, Integer> menuService = new MenuRepository();
     private Order order = new Order();
     private List<Order> orders;
-    private int id;
+    private int index;
     private double subTotal = 0, total = 0;
-    private String orderOption;
+    String addOrder;
 
     public void showOrders() {
         System.out.println();
@@ -40,8 +40,7 @@ public class OrderController {
     }
 
     public void saveOrders() {
-        order = new Order();
-
+        index = Integer.parseInt(addOrder);
         System.out.println();
     }
 }
