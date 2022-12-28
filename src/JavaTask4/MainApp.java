@@ -1,23 +1,17 @@
 package JavaTask4;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 import JavaTask4.controller.OrderController;
-import JavaTask4.models.Menu;
-import JavaTask4.models.Order;
-import JavaTask4.repositories.MenuRepository;
+import JavaTask4.repositories.OrderRepository;
+import JavaTask4.services.BaseServices;
 import JavaTask4.services.MenuService;
 
 public class MainApp {
     static Scanner input = new Scanner(System.in);
-    static OrderController orderController = new OrderController();
-    static MenuService<Menu, Integer> theMenu = new MenuRepository();
-    static int index;
-    static List<Menu> menu;
-    static Order order = new Order();
-    static String option, optionMenu, optionOrder, optionOut, optionAddOrder;
+    static OrderRepository orderRepository = new OrderRepository();
+    static OrderController orderController = new OrderController(orderRepository);
+    static String option, optionOrder;
 
     private static void appMenu() {
         System.out.println();
@@ -40,43 +34,55 @@ public class MainApp {
     }
 
     public static void main(String[] args) {
+        Boolean state = true;
         do {
             appMenu();
 
             switch (option) {
                 case "1":
                     System.out.println();
-                    theMenu.showFoodMenu();
-                    theMenu.showBeverageMenu();
-                    theMenu.showBundleMenu();
+                    MenuService.showFoodMenu();
+                    MenuService.showBeverageMenu();
+                    MenuService.showBundleMenu();
                     break;
 
                 case "2":
+                    BaseServices.clearScreen();
                     createOrder();
                     switch (optionOrder) {
                         case "1":
-                            theMenu.showFoodMenu();
-                            // System.out.print("Ingin menambah/mengubah pesanan? (tambah/ubah/kembali) ");
-                            // optionMenu = input.nextLine();
-                            System.out.print("Silahkan input nomor pesanan makanan: ");
-                            optionAddOrder = input.nextLine();
-                            index = Integer.parseInt(optionAddOrder);
-                            System.out.println(menu.get(index));
-                            // order = new Order();
-                            // order.setChosenMenu(menu.get(index).getMenuName());
+                            System.out.println();
+                            MenuService.showFoodMenu();
+                            orderController.saveOrders("food");
                             break;
-                    
+
+                        case "2":
+                            System.out.println();
+                            MenuService.showBeverageMenu();
+                            orderController.saveOrders("beverage");
+                            break;
+
+                        case "3":
+                            System.out.println();
+                            MenuService.showBundleMenu();
+                            orderController.saveOrders("bundle");
+                            break;
+
                         default:
+                            System.out.println("Input tidak sesuai.");
                             break;
                     }
+                    break;
+                
+                case "3":
                     break;
 
                 default:
                     System.out.println("Pilihan tidak tersedia.");
                     break;
             }
-            System.out.print("Ingin melakukan pemesanan/pembayaran? (y/n) ");
-            optionOut = input.nextLine();
-        } while (optionOut.equalsIgnoreCase("y"));
+            state = BaseServices.appMenuAction();
+            BaseServices.clearScreen();
+        } while (state);
     }
 }

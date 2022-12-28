@@ -1,24 +1,23 @@
 package JavaTask4.models;
 
 public class Order {
-    private String chosenMenu;
+    private Menu menu;
     private Integer quantity;
-    private Integer price;
 
-    public Integer getPrice() {
-        return price;
+    public Order() {
     }
 
-    public void setPrice(Integer price) {
-        this.price = price;
+    public Order(Menu menu, Integer quantity) {
+        this.menu = menu;
+        this.quantity = quantity;
     }
 
-    public String getChosenMenu() {
-        return chosenMenu;
+    public Menu getMenu() {
+        return menu;
     }
 
-    public void setChosenMenu(String chosenMenu) {
-        this.chosenMenu = chosenMenu;
+    public void setMenu(Menu menu) {
+        this.menu = menu;
     }
 
     public Integer getQuantity() {
@@ -28,4 +27,5 @@ public class Order {
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
+
 }
