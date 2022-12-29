@@ -1,5 +1,7 @@
 package JavaTask4.services.base;
 
+import java.util.List;
+
 import JavaTask4.models.Menu;
 import JavaTask4.models.Order;
 import JavaTask4.services.menu.MenuService;
@@ -13,11 +15,11 @@ public class BaseServices {
     public static String action() {
         while (true) {
             String option = QuestionService.questionString("Ingin menambah/mengubah pesanan? (tambah/ubah/kembali) ");
-            if (option.equalsIgnoreCase("add")) {
+            if (option.equalsIgnoreCase("tambah")) {
                 return "add";
-            } else if (option.equalsIgnoreCase("change")) {
+            } else if (option.equalsIgnoreCase("ubah")) {
                 return "change";
-            } else if (option.equalsIgnoreCase("back")) {
+            } else if (option.equalsIgnoreCase("kembali")) {
                 return "back";
             } else {
                 System.out.println("Silahkan input tambah/ubah/kembali.");
@@ -28,13 +30,17 @@ public class BaseServices {
 
     public static Order addOrder(String menuType) {
         Menu menu = new Menu();
+        int index;
 
         if (menuType.equals("food")) {
-            menu = MenuService.getFoodMenu().get((QuestionService.questionInteger("Silahkan input nomor pesanan makanan: ")) - 1);
+            index = QuestionService.questionInteger("Silahkan input nomor pesanan makanan: ");
+            menu = MenuService.getFoodMenu().get(index - 1);
         } else if (menuType.equals("beverage")) {
-            menu = MenuService.getBeverageMenu().get((QuestionService.questionInteger("Silahkan input nomor pesanan makanan: ")) - 1);
+            index = QuestionService.questionInteger("Silahkan input nomor pesanan minuman: ");
+            menu = MenuService.getBeverageMenu().get(index - 1);
         } else if (menuType.equals("bundle")) {
-            menu = MenuService.getBundleMenu().get((QuestionService.questionInteger("Silahkan input nomor pesanan makanan: ")) - 1);
+            index = QuestionService.questionInteger("Silahkan input nomor pesanan paket: ");
+            menu = MenuService.getBundleMenu().get(index - 1);
         }
 
         Integer quantity = QuestionService.questionInteger("Silahkan input banyaknya pesanan: ");
