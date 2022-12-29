@@ -15,7 +15,7 @@ public class OrderServiceImpl implements OrderService {
     public OrderServiceImpl(OrderRepository orderRepository) {
         this.orderRepository = orderRepository;
     }
-    
+
     @Override
     public void addOrder(String menuType) {
         Order order = new Order();
@@ -26,7 +26,9 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public void showAllOrder() {
         List<Order> orders = orderRepository.findAll();
-        System.out.println("============================================ DAFTAR PESANAN ============================================");
+        System.out.println();
+        System.out.println(
+                "============================================ DAFTAR PESANAN ============================================");
         int i = 1;
         double total = 0.0, subTotal, grandTotal;
 
@@ -47,16 +49,12 @@ public class OrderServiceImpl implements OrderService {
     public void updateOrder() {
         Integer index = QuestionService.questionInteger("Silahkan input nomor pesanan paket: ");
         Order order = orderRepository.findById(index);
-        if (Objects.isNull(order)) {
-            System.out.println("Nomor pesanan tidak ditemukan.");
+        order = BaseServices.wantToEdit(order);
+        if (order.getQuantity() == 0) {
+            orderRepository.delete(index);
         } else {
-            order = BaseServices.wantToEdit(order);
-            if (order.getQuantity() == 0) {
-                orderRepository.delete(index);
-            } else {
-                orderRepository.update(order, index);
-            }
+            orderRepository.update(order, index);
         }
     }
-    
+
 }
