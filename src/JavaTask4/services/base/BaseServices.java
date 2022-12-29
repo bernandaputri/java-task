@@ -12,7 +12,7 @@ public class BaseServices {
 
     public static String action() {
         while (true) {
-            String option = QuestionService.questionString("Ingin menambah/mengubah pesanan? (ubah/tambah/kembali) ");
+            String option = QuestionService.questionString("Ingin menambah/mengubah pesanan? (tambah/ubah/kembali) ");
             if (option.equalsIgnoreCase("tambah")) {
                 return "tambah";
             } else if (option.equalsIgnoreCase("ubah")) {
