@@ -16,10 +16,6 @@ public class Order {
         return menu;
     }
 
-    public void setMenu(Menu menu) {
-        this.menu = menu;
-    }
-
     public Integer getQuantity() {
         return quantity;
     }
