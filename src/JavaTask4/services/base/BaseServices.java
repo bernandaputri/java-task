@@ -13,12 +13,12 @@ public class BaseServices {
     public static String action() {
         while (true) {
             String option = QuestionService.questionString("Ingin menambah/mengubah pesanan? (tambah/ubah/kembali) ");
-            if (option.equalsIgnoreCase("tambah")) {
-                return "tambah";
-            } else if (option.equalsIgnoreCase("ubah")) {
-                return "ubah";
-            } else if (option.equalsIgnoreCase("kembali")) {
-                return "kembali";
+            if (option.equalsIgnoreCase("add")) {
+                return "add";
+            } else if (option.equalsIgnoreCase("change")) {
+                return "change";
+            } else if (option.equalsIgnoreCase("back")) {
+                return "back";
             } else {
                 System.out.println("Silahkan input tambah/ubah/kembali.");
                 continue;

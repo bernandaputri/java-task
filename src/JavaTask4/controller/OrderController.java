@@ -15,22 +15,22 @@ public class OrderController {
 
     public void saveOrders(String menuType) {
         Boolean addOrder = true;
-        String label = "tambah";
+        String label = "add";
         while (addOrder) {
             switch (label) {
-                case "tambah":
+                case "add":
                     orderService.addOrder(menuType);
                     orderService.showAllOrder();
                     label = BaseServices.action();
                     break;
 
-                case "ubah":
+                case "change":
                     orderService.updateOrder();
                     orderService.showAllOrder();
                     label = BaseServices.action();
                     break;
 
-                case "kembali":
+                case "back":
                     addOrder = false;
                     break;
 
