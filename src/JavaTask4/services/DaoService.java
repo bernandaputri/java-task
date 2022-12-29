@@ -8,5 +8,4 @@ public interface DaoService<T, K> {
     void save(T data);
     void update(T data, K id);
     void delete(K id);
-    void clearData();
 }

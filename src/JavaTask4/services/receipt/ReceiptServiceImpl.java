@@ -63,7 +63,6 @@ public class ReceiptServiceImpl implements ReceiptService {
 
             amountChange = amountPayment - grandTotal;
             System.out.println("Kembalian: " + amountChange);
-            orderRepository.clearData();
 
             System.out.println(
                     "==================================== TERIMA KASIH ATAS KUNJUNGAN ANDA ====================================");
