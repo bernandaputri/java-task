@@ -1,7 +1,5 @@
 package JavaTask4.services.base;
 
-import java.util.List;
-
 import JavaTask4.models.Menu;
 import JavaTask4.models.Order;
 import JavaTask4.services.menu.MenuService;
