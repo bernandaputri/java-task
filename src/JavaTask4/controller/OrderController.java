@@ -1,7 +1,7 @@
 package JavaTask4.controller;
 
 import JavaTask4.repositories.OrderRepository;
-import JavaTask4.services.BaseServices;
+import JavaTask4.services.base.BaseServices;
 import JavaTask4.services.order.OrderService;
 import JavaTask4.services.order.OrderServiceImpl;
 

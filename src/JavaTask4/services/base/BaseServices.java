@@ -1,7 +1,8 @@
-package JavaTask4.services;
+package JavaTask4.services.base;
 
 import JavaTask4.models.Menu;
 import JavaTask4.models.Order;
+import JavaTask4.services.menu.MenuService;
 
 public class BaseServices {
     public static void clearScreen() {
@@ -36,7 +37,7 @@ public class BaseServices {
             menu = MenuService.getBundleMenu().get((QuestionService.questionInteger("Silahkan input nomor pesanan makanan: ")) - 1);
         }
 
-        Integer quantity = QuestionService.questionInteger("Input jumlah pesanan: ");
+        Integer quantity = QuestionService.questionInteger("Silahkan input banyaknya pesanan: ");
         Order order = new Order(menu, quantity);
         return order;
     }
@@ -60,4 +61,5 @@ public class BaseServices {
         order.setQuantity(quantity);
         return order;
     }
+
 }

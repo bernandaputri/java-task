@@ -5,8 +5,8 @@ import java.util.Objects;
 
 import JavaTask4.models.Order;
 import JavaTask4.repositories.OrderRepository;
-import JavaTask4.services.BaseServices;
-import JavaTask4.services.QuestionService;
+import JavaTask4.services.base.BaseServices;
+import JavaTask4.services.base.QuestionService;
 
 public class OrderServiceImpl implements OrderService {
 
@@ -28,7 +28,7 @@ public class OrderServiceImpl implements OrderService {
         List<Order> orders = orderRepository.findAll();
         System.out.println("============================================ DAFTAR PESANAN ============================================");
         int i = 1;
-        double total = 0, subTotal, grandTotal;
+        double total = 0.0, subTotal, grandTotal;
 
         for (Order order : orders) {
             System.out.println(i + ". " + order.getMenu().getMenuName());

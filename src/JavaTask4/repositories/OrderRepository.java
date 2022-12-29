@@ -34,8 +34,4 @@ public class OrderRepository implements DaoService<Order, Integer> {
     public Order findById(Integer id) {
         return orders.get(id-1);
     }
-    
-    public void clearOrder() {
-        orders.clear();
-    }
 }

@@ -3,14 +3,16 @@ package JavaTask4;
 import java.util.Scanner;
 
 import JavaTask4.controller.OrderController;
+import JavaTask4.controller.ReceiptController;
 import JavaTask4.repositories.OrderRepository;
-import JavaTask4.services.BaseServices;
-import JavaTask4.services.MenuService;
+import JavaTask4.services.base.BaseServices;
+import JavaTask4.services.menu.MenuService;
 
 public class MainApp {
     static Scanner input = new Scanner(System.in);
     static OrderRepository orderRepository = new OrderRepository();
     static OrderController orderController = new OrderController(orderRepository);
+    static ReceiptController receiptController = new ReceiptController(orderRepository);
     static String option, optionOrder;
 
     private static void appMenu() {
@@ -75,6 +77,7 @@ public class MainApp {
                     break;
                 
                 case "3":
+                    receiptController.paymentReceipt();
                     break;
 
                 default:

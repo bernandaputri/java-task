@@ -1,4 +1,4 @@
-package JavaTask4.services;
+package JavaTask4.services.menu;
 
 import java.util.ArrayList;
 import java.util.List;
