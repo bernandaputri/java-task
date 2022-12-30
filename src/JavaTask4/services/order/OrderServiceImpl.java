@@ -46,14 +46,19 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public void updateOrder() {
-        Integer index = QuestionService.questionInteger("Silahkan input nomor pesanan paket: ");
-        Order order = orderRepository.findById(index);
-        order = BaseServices.wantToEdit(order);
-        if (order.getQuantity() == 0) {
-            orderRepository.delete(index);
+        Integer index = QuestionService.questionInteger("Silahkan input nomor pesanan: ");
+        if (index > orderRepository.findAll().size()) {
+            System.out.println("Pesanan tidak tersedia.");
         } else {
-            orderRepository.update(order, index);
+            Order order = orderRepository.findById(index);
+            order = BaseServices.wantToEdit(order);
+            if (order.getQuantity() == 0) {
+                orderRepository.delete(index);
+            } else {
+                orderRepository.update(order, index);
+            }
         }
+
     }
 
 }
